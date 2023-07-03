@@ -1,0 +1,13 @@
+---
+- name: First Play
+  hosts: switches-fabrica
+  #switches-fabrica
+  gather_facts: False
+  connection: local
+  tasks:
+    - name: acessando via SSH e realizando ping interno no Switch
+      ios_command:
+        commands:
+              - sh run
+        waitfor:
+              - result[0] contains 'usuario'

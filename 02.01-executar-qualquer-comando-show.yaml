@@ -1,0 +1,17 @@
+---
+- hosts: switches
+  gather_facts: false
+  connection: local
+
+  tasks:
+   - name: show version
+     ios_command:
+       commands: 
+         - sh version
+       host: "{{ ansible_host }}"
+     register: config
+
+   - name: save output
+     copy:
+       content: "{{ config.stdout[0] }}"
+       dest: "/home/willian/backups/show_version_{{ inventory_hostname }}.txt"

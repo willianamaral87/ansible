@@ -1,0 +1,20 @@
+---
+- name: Network Automation
+  hosts: roteadores
+  gather_facts: False
+  connection: local
+  tasks:
+    - name: configure multipe interface settings
+      ios_config:
+          lines:  
+          - no shutdown
+          parents: '{{ item }}'
+      with_items:
+      - interface loopback200
+      - interface loopback201 
+      - interface loopback202
+      - interface loopback203 
+      - interface loopback204
+      - interface loopback205
+      - interface loopback206
+      - interface loopback2007

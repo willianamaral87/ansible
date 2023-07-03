@@ -1,0 +1,17 @@
+---
+- name: First Play
+  hosts: roteadores
+  gather_facts: False
+  connection: local
+  tasks:
+    - name: run commands that require answering a prompt
+      net_ping:
+              #dest: "{{ ansible_host }}"
+              dest: 10.0.0.2
+              #source: loopback101
+              count: 10
+      register: var1
+    - name: Second Task
+      debug:
+        var: var1
+

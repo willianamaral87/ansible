@@ -1,0 +1,10 @@
+---
+- name: First Play
+  hosts: roteadores
+  gather_facts: False
+  connection: local
+  tasks:
+    - name: removendo usuario...
+      ios_user:
+         name: "cisco"
+         state: absent

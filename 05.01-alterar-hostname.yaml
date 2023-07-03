@@ -1,0 +1,11 @@
+---
+- name: First Play
+  hosts: switches
+  gather_facts: False
+  connection: local
+  tasks:
+    - name: acessando via SSH e realizando ping interno no Switch
+      ios_config:
+         lines: hostname {{ inventory_hostname }}
+
+##inventory_hostname eh herdado do arquivo hosts

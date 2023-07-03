@@ -1,0 +1,12 @@
+---
+- name: First Play
+  hosts: roteadores
+  gather_facts: False
+  connection: local
+  tasks:
+    - name: Criando usuario...
+      ios_user:
+         name: "diego"
+         configured_password: "diego"
+         password_type: secret
+         state: present

@@ -1,0 +1,11 @@
+---
+- name: Network Automation
+  hosts: roteadores
+  gather_facts: False
+  connection: local
+  tasks:
+    - name: configure interface settings
+      ios_config:
+          lines:  
+          - shutdown
+          parents: interface loopback201

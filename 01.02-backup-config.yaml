@@ -1,0 +1,12 @@
+---
+- name: Config
+  hosts: "{{FQDN}}"
+  gather_facts: no
+
+  tasks:
+    - name: configurable backup path
+      ios_config:
+        backup: yes
+        backup_options:
+          filename: backup-{{FQDN}}.cfg
+          dir_path: /home/willian/backups

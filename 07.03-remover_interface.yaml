@@ -1,0 +1,14 @@
+---
+- name: First Play
+  hosts: roteadores
+  gather_facts: False
+  connection: local
+  tasks:
+    - name: configure interface settings
+      ios_config:
+          lines:  
+          - no interface loopback200
+          - no interface loopback201
+          - no interface loopback202
+          - no interface loopback203
+          - no interface loopback204

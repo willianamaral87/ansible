@@ -1,0 +1,12 @@
+---
+- name: First Play
+  hosts: roteadores
+  gather_facts: False
+  connection: local
+  tasks:
+    - name: removendo usuarios listados..
+      ios_user:
+        aggregate:
+        - name: usuario1
+        - name: usuario2
+        state: absent
